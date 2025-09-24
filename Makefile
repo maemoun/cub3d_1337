@@ -1,0 +1,32 @@
+NAME	:= cub3D
+CC		:= cc
+
+# CFLAGS	:= -Wall -Wextra -Werror
+
+SRC		:= cub3d.c \
+			./parsing/parsing.c \
+			./parsing/check_file_name.c \
+			./parsing/print_error.c \
+			./parsing/utils.c \
+			./parsing/read_fd.c \
+			./parsing/get_next_line.c \
+			./parsing/split.c \
+
+
+OBJ		:= $(SRC:.c=.o)
+
+all:	$(NAME)
+
+$(NAME): $(OBJ)
+		$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.c	./parsing/cub3d.h
+		$(CC) -c $< -o $@
+
+clean:
+		rm -rf $(OBJ)
+
+fclean:	clean
+		rm -rf $(NAME)
+
+re:	fclean all
