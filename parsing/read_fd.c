@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 12:29:32 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/09/23 13:02:48 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/09/24 16:45:42 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_read_fd(char *fd_in, t_list *list)
 	char	*line;
 	char	*line_join;
 	char	*tmp;
-	
+
 	fd = open(fd_in, O_RDONLY);
 	if (fd < 0)
 		ft_print_error("Eroor\nCan't Open File fd_in!\n", NULL, NULL);
@@ -29,12 +29,16 @@ void	ft_read_fd(char *fd_in, t_list *list)
 	while (line)
 	{
 		tmp = ft_strjoin(line_join, line);
-		free(line_join);
 		free(line);
 		line_join = tmp;
 		line = get_next_line(fd);
+		if (!line)
+			{
+				// free line join
+				// exit  wla return
+			}
 	}
 	list->fd_lines = ft_split(line_join, '\n');
-	free(line_join);
+	// free(line_join);
 	close(fd);
 }

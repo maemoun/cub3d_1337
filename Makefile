@@ -1,16 +1,17 @@
 NAME	:= cub3D
 CC		:= cc
 
-# CFLAGS	:= -Wall -Wextra -Werror
+CFLAGS	:= -Wall -Wextra -Werror -fsanitize=address
 
 SRC		:= cub3d.c \
 			./parsing/parsing.c \
 			./parsing/check_file_name.c \
 			./parsing/print_error.c \
-			./parsing/utils.c \
 			./parsing/read_fd.c \
-			./parsing/get_next_line.c \
+			./parsing/get_next_line/get_next_line_utils.c \
+			./parsing/get_next_line/get_next_line.c \
 			./parsing/split.c \
+			./parsing/utils.c \
 
 
 OBJ		:= $(SRC:.c=.o)
