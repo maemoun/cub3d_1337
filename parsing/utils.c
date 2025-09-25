@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 17:16:20 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/09/24 17:17:26 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/09/25 02:01:02 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,37 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+int	ft_strncmp(char *s1, char *s2, int n)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_put_value(char *s)
+{
+	int		i;
+	char	*str;
+	int		len;
+	int		j;
+
+	i = 2;
+	len = ft_strlen(s);
+	str = malloc(len + 1 - 2);
+	j = 0;
+	while (s[i])
+	{
+		str[j++] = s[i++];
+	}
+	str[j] = '\0';
+	return(str);
 }

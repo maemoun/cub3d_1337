@@ -12,6 +12,7 @@ SRC		:= cub3d.c \
 			./parsing/get_next_line/get_next_line.c \
 			./parsing/split.c \
 			./parsing/utils.c \
+			./parsing/init_vars.c \
 
 
 OBJ		:= $(SRC:.c=.o)
