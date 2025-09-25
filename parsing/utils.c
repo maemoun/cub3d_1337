@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 17:16:20 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/09/25 02:01:02 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/09/25 12:17:19 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_strncmp(char *s1, char *s2, int n)
 	return (0);
 }
 
-char	*ft_put_value(char *s)
+char	*ft_get_texture(char *s)
 {
 	int		i;
 	char	*str;
@@ -60,8 +60,37 @@ char	*ft_put_value(char *s)
 
 	i = 2;
 	len = ft_strlen(s);
-	str = malloc(len + 1 - 2);
 	j = 0;
+	while (s[i] == ' ' || s[i] == '\t')
+	{
+		i++;
+		len--;
+	}
+	str = malloc(len + 1 - 2);
+	while (s[i])
+	{
+		str[j++] = s[i++];
+	}
+	str[j] = '\0';
+	return(str);
+}
+
+char	*ft_get_color(char *s)
+{
+	int		i;
+	char	*str;
+	int		len;
+	int		j;
+
+	i = 1;
+	len = ft_strlen(s);
+	j = 0;
+	while (s[i] == ' ' || s[i] == '\t')
+	{
+		i++;
+		len--;
+	}
+	str = malloc(len + 1 - 1);
 	while (s[i])
 	{
 		str[j++] = s[i++];
